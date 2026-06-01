@@ -5,6 +5,9 @@ export const memberService = {
   list: (params?: { page?: number; pageSize?: number; search?: string; status?: string }) =>
     api.get<PaginatedResponse<Member>>('/members', { params }).then((r) => r.data),
 
+  me: () =>
+    api.get<ApiResponse<Member>>('/members/me').then((r) => r.data),
+
   get: (id: string) =>
     api.get<ApiResponse<Member>>(`/members/${id}`).then((r) => r.data),
 
