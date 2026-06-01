@@ -14,6 +14,7 @@ import AdminTrainers from '../pages/admin/AdminTrainers';
 import AdminPlans from '../pages/admin/AdminPlans';
 import AdminAttendance from '../pages/admin/AdminAttendance';
 import AdminPayments from '../pages/admin/AdminPayments';
+import AdminTrainerPayments from '../pages/admin/AdminTrainerPayments';
 import AdminReports from '../pages/admin/AdminReports';
 import AdminNotifications from '../pages/admin/AdminNotifications';
 import AdminSettings from '../pages/admin/AdminSettings';
@@ -65,6 +66,7 @@ export default function AppRoutes() {
         <Route path="/admin/plans" element={<AdminPlans />} />
         <Route path="/admin/attendance" element={<AdminAttendance />} />
         <Route path="/admin/payments" element={<AdminPayments />} />
+        <Route path="/admin/trainer-payments" element={<AdminTrainerPayments />} />
         <Route path="/admin/reports" element={<AdminReports />} />
         <Route path="/admin/notifications" element={<AdminNotifications />} />
         <Route path="/admin/settings" element={<AdminSettings />} />

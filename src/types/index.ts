@@ -18,6 +18,7 @@ export interface MembershipPlan {
   duration: number;
   description?: string | null;
   features?: string[];
+  isActive?: boolean;
   isPopular?: boolean;
 }
 
@@ -58,17 +59,44 @@ export interface AttendanceRecord {
   date: string;
 }
 
-export type PaymentStatus = 'PAID' | 'PENDING' | 'FAILED' | 'REFUNDED';
+export type PaymentStatus =
+  | 'PAID'
+  | 'PENDING'
+  | 'PENDING_VERIFICATION'
+  | 'APPROVED'
+  | 'REJECTED'
+  | 'FAILED'
+  | 'REFUNDED';
 export type PaymentMethod = 'CARD' | 'CASH' | 'BANK_TRANSFER' | 'UPI';
 
 export interface Payment {
   id: string;
   memberId: string;
   memberName: string;
+  memberEmail?: string;
+  membershipPlanId?: string | null;
+  planName?: string | null;
   amount: number;
   paymentMethod: PaymentMethod;
   status: PaymentStatus;
   paymentDate: string;
+  transactionId?: string | null;
+  screenshotUrl?: string | null;
+  rejectionReason?: string | null;
+  reviewedAt?: string | null;
+}
+
+export type TrainerPaymentStatus = 'PAID' | 'PENDING';
+
+export interface TrainerPayment {
+  id: string;
+  trainerId: string;
+  trainerName: string;
+  trainerEmail?: string;
+  amount: number;
+  status: TrainerPaymentStatus;
+  paymentDate: string;
+  notes?: string | null;
 }
 
 export interface WorkoutPlan {
